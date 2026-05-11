@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --cream: #FDF8F2;
+  --warm-white: #FFFCF7;
+  --deep: #1A0F2E;
+  --purple: #6B3FA0;
+  --purple-light: #9B6DD4;
+  --gold: #E8A830;
+  --gold-light: #F5C842;
+  --coral: #F06449;
+  --text-muted: #7A6E82;
+  --border: rgba(107, 63, 160, 0.12);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--cream);
+  color: var(--deep);
+  overflow-x: hidden;
+}
+
+@layer utilities {
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: none;
+  }
+}

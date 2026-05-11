@@ -1,0 +1,251 @@
+================================================================================
+                    🤖 AI RECOMMENDATION SYSTEM FLOW
+================================================================================
+
+STEP 1: USER INPUT
+==================
+┌─────────────────────────────────────────┐
+│  Event Planning Form                    │
+│  ─────────────────────────────────────  │
+│  City: Dehradun                         │
+│  Theme: Cartoon                         │
+│  Budget: ₹15,000                        │
+│  Guest Count: 30                        │
+│  Categories: Decorator, Cake            │
+└─────────────────────────────────────────┘
+                    ↓
+
+STEP 2: API REQUEST
+===================
+GET /api/vendors?city=Dehradun&theme=Cartoon&budget=15000&guestCount=30&category=decorator
+                    ↓
+
+STEP 3: DATABASE QUERY
+======================
+┌─────────────────────────────────────────┐
+│  Supabase Database                      │
+│  ─────────────────────────────────────  │
+│  SELECT * FROM vendors                  │
+│  WHERE city = 'Dehradun'                │
+│    AND category = 'decorator'           │
+│    AND verified = true                  │
+│  ORDER BY rating DESC                   │
+└─────────────────────────────────────────┘
+                    ↓
+        Returns 10 decorators
+                    ↓
+
+STEP 4: AI SCORING ALGORITHM
+=============================
+
+For Each Vendor:
+┌─────────────────────────────────────────────────────────────┐
+│  VENDOR: "Dream Decorators"                                 │
+│  ─────────────────────────────────────────────────────────  │
+│                                                              │
+│  Factor 1: RATING SCORE (0-5 points)                        │
+│  ├─ Rating: 4.9                                             │
+│  └─ Score: +4.9 points ✓                                    │
+│                                                              │
+│  Factor 2: PRICE MATCH (0-3 points)                         │
+│  ├─ Vendor Price: ₹8,000 (average)                          │
+│  ├─ Budget per category: ₹15,000 / 5 = ₹3,000              │
+│  ├─ Price ratio: ₹8,000 / ₹3,000 = 267%                    │
+│  └─ Score: +0 points (over budget)                          │
+│                                                              │
+│  Factor 3: THEME MATCH (0-5 points)                         │
+│  ├─ Theme: Cartoon                                          │
+│  ├─ Keywords: [cartoon, kids, children, fun, colorful...]  │
+│  ├─ Vendor Tags: [kids, cartoon, colorful, balloon]        │
+│  ├─ Matches: kids✓, cartoon✓, colorful✓ = 3 matches        │
+│  └─ Score: 3 × 2 = 6, capped at 5 → +5 points ✓            │
+│                                                              │
+│  Factor 4: EXPERIENCE (0-2 points)                          │
+│  ├─ Review Count: 156                                       │
+│  ├─ Threshold: ≥100 reviews                                 │
+│  └─ Score: +2 points ✓                                      │
+│                                                              │
+│  Factor 5: VERIFICATION (0-1 point)                         │
+│  ├─ Verified: Yes                                           │
+│  └─ Score: +1 point ✓                                       │
+│                                                              │
+│  ═══════════════════════════════════════════════════════    │
+│  TOTAL MATCH SCORE: 12.9 / 16 points                        │
+│  TIER: STANDARD                                             │
+└─────────────────────────────────────────────────────────────┘
+
+Repeat for all vendors...
+
+STEP 5: SCORING RESULTS
+========================
+┌──────────────────────────────────────────────────────┐
+│  Vendor Name              Score    Tier              │
+│  ──────────────────────────────────────────────────  │
+│  1. Party Perfect Decor   14.6    🌟 PREMIUM         │
+│  2. Dream Decorators      12.9    ⭐ STANDARD        │
+│  3. Celebration Decor     11.8    ⭐ STANDARD        │
+│  4. Budget Balloons       9.2     💰 BUDGET          │
+│  5. Elegant Events        6.8     💰 BUDGET          │
+└──────────────────────────────────────────────────────┘
+                    ↓
+
+STEP 6: SORT BY SCORE
+=====================
+Vendors sorted from highest to lowest match score
+                    ↓
+
+STEP 7: RETURN TO FRONTEND
+===========================
+┌─────────────────────────────────────────┐
+│  JSON Response                          │
+│  ─────────────────────────────────────  │
+│  {                                      │
+│    "vendors": [                         │
+│      {                                  │
+│        "id": "uuid",                    │
+│        "name": "Party Perfect Decor",   │
+│        "matchScore": 14.6,              │
+│        "rating": 4.6,                   │
+│        "price_min": 3000,               │
+│        "price_max": 8000,               │
+│        ...                              │
+│      },                                 │
+│      ...                                │
+│    ]                                    │
+│  }                                      │
+└─────────────────────────────────────────┘
+                    ↓
+
+STEP 8: DISPLAY TO USER
+=======================
+┌─────────────────────────────────────────────────────────────┐
+│  🌟 PREMIUM TIER                                            │
+│  ┌───────────────────────────────────────────────────────┐  │
+│  │  Party Perfect Decor                    ⭐ 4.6 (164)  │  │
+│  │  Creative decoration specialists...                   │  │
+│  │  🎯 6y exp  🎉 290+ events                            │  │
+│  │  Price Range: ₹3.0K - ₹8.0K                          │  │
+│  │  [I'm Interested] [View Portfolio]                   │  │
+│  └───────────────────────────────────────────────────────┘  │
+│                                                             │
+│  ⭐ STANDARD TIER                                           │
+│  ┌───────────────────────────────────────────────────────┐  │
+│  │  Dream Decorators                       ⭐ 4.9 (156)  │  │
+│  │  Premium decoration services...                       │  │
+│  │  🎯 12y exp  🎉 540+ events                           │  │
+│  │  Price Range: ₹5.0K - ₹15.0K                         │  │
+│  │  [I'm Interested] [View Portfolio]                   │  │
+│  └───────────────────────────────────────────────────────┘  │
+│                                                             │
+│  💰 BUDGET TIER                                             │
+│  ┌───────────────────────────────────────────────────────┐  │
+│  │  Budget Balloons                        ⭐ 4.3 (95)   │  │
+│  │  Affordable balloon decorations...                    │  │
+│  │  🎯 3y exp  🎉 120+ events                            │  │
+│  │  Price Range: ₹2.0K - ₹5.0K                          │  │
+│  │  [I'm Interested] [View Portfolio]                   │  │
+│  └───────────────────────────────────────────────────────┘  │
+└─────────────────────────────────────────────────────────────┘
+
+================================================================================
+                    SCORING BREAKDOWN
+================================================================================
+
+Maximum Score: 16 points
+
+┌─────────────────────────────────────────────────────────────┐
+│  Factor                Weight        Description            │
+│  ─────────────────────────────────────────────────────────  │
+│  1. Rating             0-5 points    Service quality        │
+│  2. Price Match        0-3 points    Budget fit             │
+│  3. Theme Match        0-5 points    Specialization         │
+│  4. Experience         0-2 points    Track record           │
+│  5. Verification       0-1 point     Platform trust         │
+│  ─────────────────────────────────────────────────────────  │
+│  TOTAL                 0-16 points                          │
+└─────────────────────────────────────────────────────────────┘
+
+TIER ASSIGNMENT:
+├─ Premium:  Score ≥ 13 points
+├─ Standard: Score 10-12.9 points
+└─ Budget:   Score < 10 points
+
+================================================================================
+                    THEME KEYWORDS MAPPING
+================================================================================
+
+Cartoon Theme:
+├─ cartoon, kids, children, fun, colorful, playful, animated, character
+
+Romantic Theme:
+├─ romantic, elegant, intimate, couple, love, roses, candles, soft
+
+Luxury Theme:
+├─ luxury, premium, elegant, sophisticated, high-end, exclusive, deluxe, royal
+
+Surprise Theme:
+└─ surprise, special, unique, creative, unexpected, wow, amazing
+
+================================================================================
+                    PRICE MATCHING LOGIC
+================================================================================
+
+Budget per Category = Total Budget / Number of Categories
+
+Example: ₹15,000 / 5 categories = ₹3,000 per category
+
+Vendor Price vs Budget:
+├─ ≤ 80% of budget  → +3 points (Well within budget)
+├─ ≤ 100% of budget → +2 points (Within budget)
+├─ ≤ 120% of budget → +1 point  (Slightly over)
+└─ > 120% of budget → +0 points (Over budget)
+
+================================================================================
+                    WHY THIS WORKS
+================================================================================
+
+✅ Multi-Factor Analysis
+   Not just price or rating - considers everything
+
+✅ Budget-Aware
+   Prioritizes affordable options within budget
+
+✅ Theme-Specific
+   Matches vendor specialization with event theme
+
+✅ Experience-Weighted
+   Rewards proven track record
+
+✅ Transparent
+   Clear scoring, reproducible results
+
+✅ Scalable
+   Easy to add new factors or adjust weights
+
+================================================================================
+                    EXAMPLE COMPARISON
+================================================================================
+
+User Budget: ₹15,000 for 5 categories = ₹3,000 per category
+Theme: Cartoon
+
+Vendor A: "Party Perfect Decor"
+├─ Price: ₹5,500 (avg) → 183% of budget → +0 points
+├─ Rating: 4.6 → +4.6 points
+├─ Tags: [kids, cartoon, fun] → 3 matches → +5 points
+├─ Reviews: 164 → +2 points
+├─ Verified: Yes → +1 point
+└─ TOTAL: 12.6 points → STANDARD TIER
+
+Vendor B: "Elegant Events"
+├─ Price: ₹12,000 (avg) → 400% of budget → +0 points
+├─ Rating: 4.8 → +4.8 points
+├─ Tags: [luxury, premium] → 0 matches → +0 points
+├─ Reviews: 89 → +1 point
+├─ Verified: Yes → +1 point
+└─ TOTAL: 6.8 points → BUDGET TIER
+
+Result: Vendor A ranks higher despite lower rating because it matches
+        the theme and is more budget-appropriate!
+
+================================================================================

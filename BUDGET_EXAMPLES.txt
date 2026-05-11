@@ -1,0 +1,178 @@
+================================================================================
+            💰 REALISTIC BUDGET ALLOCATION EXAMPLES
+================================================================================
+
+CORE RULE: Restaurant gets 75% of budget when selected!
+
+================================================================================
+EXAMPLE 1: ₹30,000 with Restaurant + Decorator
+================================================================================
+
+Total Budget: ₹30,000
+Categories: Restaurant, Decorator
+
+Allocation:
+┌──────────────────────────────────────────────────────────────┐
+│  Category      Budget      Percentage                        │
+│  ──────────────────────────────────────────────────────────  │
+│  Restaurant    ₹22,500     75% ████████████████████████████  │
+│  Decorator     ₹7,500      25% █████████                     │
+└──────────────────────────────────────────────────────────────┘
+
+Why: Food is most important, gets majority!
+
+================================================================================
+EXAMPLE 2: ₹60,000 with Restaurant + Decorator + Photographer
+================================================================================
+
+Total Budget: ₹60,000
+Categories: Restaurant, Decorator, Photographer
+
+Step 1: Restaurant gets 75%
+├─ Restaurant: 75% × ₹60,000 = ₹45,000
+
+Step 2: Remaining 25% distributed
+├─ Remaining: ₹15,000
+├─ Decorator priority: 20
+├─ Photographer priority: 15
+├─ Total priority: 35
+│
+├─ Decorator: (20/35) × ₹15,000 = ₹8,571
+└─ Photographer: (15/35) × ₹15,000 = ₹6,429
+
+Final Allocation:
+┌──────────────────────────────────────────────────────────────┐
+│  Category       Budget      Percentage                       │
+│  ──────────────────────────────────────────────────────────  │
+│  Restaurant     ₹45,000     75% ████████████████████████████ │
+│  Decorator      ₹8,571      14% ████████                     │
+│  Photographer   ₹6,429      11% ██████                       │
+└──────────────────────────────────────────────────────────────┘
+
+Total: ₹60,000 ✓
+
+================================================================================
+EXAMPLE 3: ₹30,000 with Decorator + Photographer (No Restaurant)
+================================================================================
+
+Total Budget: ₹30,000
+Categories: Decorator, Photographer (NO RESTAURANT)
+
+No restaurant → Distribute more evenly
+
+Allocation:
+├─ Decorator priority: 20
+├─ Photographer priority: 15
+├─ Total priority: 35
+│
+├─ Decorator: (20/35) × ₹30,000 = ₹17,143
+└─ Photographer: (15/35) × ₹30,000 = ₹12,857
+
+Final Allocation:
+┌──────────────────────────────────────────────────────────────┐
+│  Category       Budget      Percentage                       │
+│  ──────────────────────────────────────────────────────────  │
+│  Decorator      ₹17,143     57% ████████████████████████     │
+│  Photographer   ₹12,857     43% ████████████████             │
+└──────────────────────────────────────────────────────────────┘
+
+Total: ₹30,000 ✓
+
+================================================================================
+COMPARISON: OLD vs NEW SYSTEM
+================================================================================
+
+Budget: ₹30,000
+Categories: Restaurant + Decorator
+
+OLD SYSTEM (Equal-ish Split):
+┌──────────────────────────────────────┐
+│  Restaurant    ₹16,364    55%        │
+│  Decorator     ₹13,636    45%        │
+└──────────────────────────────────────┘
+❌ Problem: Restaurant only gets 55%!
+
+NEW SYSTEM (Restaurant Priority):
+┌──────────────────────────────────────┐
+│  Restaurant    ₹22,500    75%        │
+│  Decorator     ₹7,500     25%        │
+└──────────────────────────────────────┘
+✅ Better: Restaurant gets majority!
+
+Difference:
+├─ Restaurant: +₹6,136 more (37% increase) ✓
+└─ Decorator:  -₹6,136 less
+
+================================================================================
+MORE EXAMPLES
+================================================================================
+
+Example 4: ₹50,000 with Restaurant Only
+────────────────────────────────────────
+Restaurant: ₹50,000 (100%)
+Result: All budget for food ✓
+
+Example 5: ₹40,000 with Restaurant + Cake + DJ
+───────────────────────────────────────────────
+Restaurant: ₹30,000 (75%)
+Cake:       ₹4,444  (11%)
+DJ:         ₹5,556  (14%)
+Total:      ₹40,000 ✓
+
+Example 6: ₹100,000 with All Categories
+────────────────────────────────────────
+Restaurant:    ₹75,000 (75%)
+Decorator:     ₹8,621  (9%)
+Photographer:  ₹6,466  (6%)
+Cake:          ₹3,448  (3%)
+DJ:            ₹4,310  (4%)
+Entertainment: ₹2,155  (2%)
+Total:         ₹100,000 ✓
+
+================================================================================
+PRIORITY WEIGHTS
+================================================================================
+
+When Restaurant Selected:
+├─ Restaurant:    75% (Gets majority!)
+└─ Others:        25% (Share remaining)
+
+When No Restaurant:
+├─ Decorator:     20 (Highest)
+├─ Photographer:  15
+├─ DJ:            10
+├─ Cake:          8
+└─ Entertainment: 5  (Lowest)
+
+================================================================================
+WHY THIS MAKES SENSE
+================================================================================
+
+✅ Food is Most Important
+   - Guests remember good food
+   - Bad food ruins events
+   - Food costs are highest
+
+✅ Realistic Allocation
+   - Real events spend 70-80% on food
+   - Matches industry standards
+   - Practical budgeting
+
+✅ Fair Distribution
+   - Restaurant gets deserved majority
+   - Others share remaining fairly
+   - No category gets too little
+
+================================================================================
+SUMMARY
+================================================================================
+
+New System Rules:
+1. Restaurant gets 75% when selected
+2. Remaining 25% distributed among others
+3. No restaurant? Distribute more evenly
+4. Always proportional to priority
+
+Result: Realistic, fair, and practical budget allocation! 🎉
+
+================================================================================

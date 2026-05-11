@@ -1,0 +1,204 @@
+================================================================================
+        YOUR EXACT SCENARIO: ₹60K Budget, ₹30K Restaurant
+================================================================================
+
+QUESTION: What if I have ₹60,000 budget and restaurant costs ₹30,000?
+          I need restaurant and decorator.
+
+================================================================================
+                    ANSWER: SMART REALLOCATION
+================================================================================
+
+STEP 1: Initial Allocation (75/25 Rule)
+────────────────────────────────────────────────────────────────
+
+Total Budget: ₹60,000
+Categories: Restaurant + Decorator
+
+Initial Allocation:
+┌──────────────────────────────────────────────────────────────┐
+│  Restaurant:  75% × ₹60,000 = ₹45,000                       │
+│  Decorator:   25% × ₹60,000 = ₹15,000                       │
+└──────────────────────────────────────────────────────────────┘
+
+
+STEP 2: Check Actual Restaurant Cost
+────────────────────────────────────────────────────────────────
+
+Restaurant vendor selected: ₹30,000
+
+Comparison:
+├─ Allocated:  ₹45,000
+├─ Actual:     ₹30,000
+└─ Unused:     ₹15,000 ✓ (Can be reallocated!)
+
+
+STEP 3: Smart Reallocation
+────────────────────────────────────────────────────────────────
+
+Unused budget from restaurant: ₹15,000
+
+Reallocate to decorator:
+├─ Original:  ₹15,000
+├─ Add:       ₹15,000 (unused from restaurant)
+└─ New:       ₹30,000 ✓
+
+
+FINAL ALLOCATION:
+────────────────────────────────────────────────────────────────
+
+┌──────────────────────────────────────────────────────────────┐
+│  Category      Budget      Percentage                        │
+│  ──────────────────────────────────────────────────────────  │
+│  Restaurant    ₹30,000     50% ████████████████████████████  │
+│  Decorator     ₹30,000     50% ████████████████████████████  │
+│  ──────────────────────────────────────────────────────────  │
+│  Total         ₹60,000     100% ✓                            │
+└──────────────────────────────────────────────────────────────┘
+
+Result: Perfect 50/50 split based on actual costs!
+
+================================================================================
+                    VISUAL BREAKDOWN
+================================================================================
+
+BEFORE (Initial Allocation):
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Restaurant (75%):  ₹45,000  ████████████████████████████████████████████████
+Decorator  (25%):  ₹15,000  ████████████████
+
+
+AFTER (Smart Reallocation):
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Restaurant (50%):  ₹30,000  ████████████████████████████████████
+Decorator  (50%):  ₹30,000  ████████████████████████████████████
+
+Total: ₹60,000 ✓
+
+================================================================================
+                    WHAT YOU GET
+================================================================================
+
+Instead of:
+❌ Restaurant: ₹45,000 (allocated but only need ₹30,000)
+❌ Decorator:  ₹15,000 (limited options)
+❌ Wasted:     ₹15,000
+
+You get:
+✅ Restaurant: ₹30,000 (actual cost)
+✅ Decorator:  ₹30,000 (doubled budget!)
+✅ Wasted:     ₹0
+
+Benefits:
+├─ Decorator budget DOUBLED (₹15K → ₹30K)
+├─ More premium decorator options available
+├─ Better balanced event
+└─ No wasted money
+
+================================================================================
+                    DECORATOR OPTIONS COMPARISON
+================================================================================
+
+With ₹15,000 budget:
+┌────────────────────────────────────────┐
+│  Budget Decorator:  ₹12,000  ✓        │
+│  Standard Decorator: ₹18,000  ✗       │
+│  Premium Decorator:  ₹28,000  ✗       │
+└────────────────────────────────────────┘
+Limited to budget options only!
+
+With ₹30,000 budget:
+┌────────────────────────────────────────┐
+│  Budget Decorator:  ₹12,000  ✓        │
+│  Standard Decorator: ₹18,000  ✓        │
+│  Premium Decorator:  ₹28,000  ✓        │
+└────────────────────────────────────────┘
+All options available!
+
+================================================================================
+                    HOW IT WORKS
+================================================================================
+
+1. System allocates 75% to restaurant (₹45,000)
+2. You select restaurant that costs ₹30,000
+3. System detects ₹15,000 unused
+4. System reallocates ₹15,000 to decorator
+5. Decorator budget increases to ₹30,000
+6. You get better decorator options!
+
+This happens automatically! ✨
+
+================================================================================
+                    MORE EXAMPLES
+================================================================================
+
+Example 1: Restaurant costs ₹25,000
+────────────────────────────────────
+Budget: ₹60,000
+Restaurant actual: ₹25,000
+Unused: ₹20,000
+
+Result:
+├─ Restaurant: ₹25,000 (42%)
+└─ Decorator:  ₹35,000 (58%) ← Even more budget!
+
+
+Example 2: Restaurant costs ₹40,000
+────────────────────────────────────
+Budget: ₹60,000
+Restaurant actual: ₹40,000
+Unused: ₹5,000
+
+Result:
+├─ Restaurant: ₹40,000 (67%)
+└─ Decorator:  ₹20,000 (33%) ← Still better than ₹15K!
+
+
+Example 3: Restaurant costs ₹50,000
+────────────────────────────────────
+Budget: ₹60,000
+Restaurant actual: ₹50,000
+Over by: ₹5,000
+
+Options:
+A) Reduce decorator to ₹10,000
+B) Choose cheaper restaurant (₹45,000)
+
+System shows both options, you choose!
+
+================================================================================
+                    KEY PRINCIPLE
+================================================================================
+
+"Use actual vendor prices, not allocated amounts.
+ Reallocate unused budget to other categories."
+
+This ensures:
+✅ No wasted budget
+✅ Better value for money
+✅ More balanced event
+✅ Higher customer satisfaction
+
+================================================================================
+                    SUMMARY
+================================================================================
+
+Your Question:
+"₹60K budget, restaurant costs ₹30K, need decorator"
+
+Answer:
+├─ Restaurant gets: ₹30,000 (actual cost)
+├─ Decorator gets:  ₹30,000 (original ₹15K + unused ₹15K)
+└─ Total:           ₹60,000 ✓
+
+Result: You get DOUBLE the decorator budget! 🎉
+
+The system is smart enough to:
+1. Start with 75/25 allocation
+2. Check actual vendor prices
+3. Reallocate unused budget
+4. Give you the best value
+
+This is exactly how it should work! ✅
+
+================================================================================

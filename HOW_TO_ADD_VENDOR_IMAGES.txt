@@ -1,0 +1,119 @@
+HOW TO ADD VENDOR IMAGES TO SUPABASE
+=====================================
+
+STEP 1: Run the SQL to add image columns
+-----------------------------------------
+1. Go to Supabase Dashboard: https://supabase.com/dashboard
+2. Select your project: uaiwuivyrdoausenvlbs
+3. Go to SQL Editor
+4. Copy and paste the content from: add-vendor-images.sql
+5. Click "Run"
+
+This will add these columns to vendors table:
+- image_url (TEXT) - Main vendor image
+- portfolio_images (TEXT[]) - Array of portfolio images
+- description (TEXT) - Vendor description
+- area (VARCHAR) - Vendor area/location
+
+
+STEP 2: Create Storage Bucket
+------------------------------
+1. In Supabase Dashboard, go to Storage
+2. Click "New bucket"
+3. Name: "vendor-images"
+4. Make it PUBLIC (so images can be accessed without auth)
+5. Click "Create bucket"
+
+
+STEP 3: Upload Images
+----------------------
+1. Go to Storage → vendor-images bucket
+2. Click "Upload file"
+3. Upload your vendor images
+4. After upload, click on the image
+5. Copy the public URL (looks like):
+   https://uaiwuivyrdoausenvlbs.supabase.co/storage/v1/object/public/vendor-images/image-name.jpg
+
+
+STEP 4: Update Vendor Records
+------------------------------
+1. Go to Table Editor → vendors
+2. Find the vendor you want to update
+3. Click on the row to edit
+4. Update these fields:
+
+   image_url: 
+   https://uaiwuivyrdoausenvlbs.supabase.co/storage/v1/object/public/vendor-images/vendor-main.jpg
+
+   portfolio_images (click to edit array):
+   [
+     "https://uaiwuivyrdoausenvlbs.supabase.co/storage/v1/object/public/vendor-images/vendor-1.jpg",
+     "https://uaiwuivyrdoausenvlbs.supabase.co/storage/v1/object/public/vendor-images/vendor-2.jpg",
+     "https://uaiwuivyrdoausenvlbs.supabase.co/storage/v1/object/public/vendor-images/vendor-3.jpg"
+   ]
+
+5. Click "Save"
+
+
+STEP 5: Test on Website
+------------------------
+1. Go to your website: /plan
+2. Fill the form and select vendors
+3. Click "Get AI recommendations"
+4. Click "View Portfolio" on any vendor
+5. You should see the actual images!
+
+
+ALTERNATIVE: Update via SQL
+----------------------------
+If you want to update multiple vendors at once:
+
+UPDATE vendors 
+SET 
+  image_url = 'https://uaiwuivyrdoausenvlbs.supabase.co/storage/v1/object/public/vendor-images/celebrations-main.jpg',
+  portfolio_images = ARRAY[
+    'https://uaiwuivyrdoausenvlbs.supabase.co/storage/v1/object/public/vendor-images/celebrations-1.jpg',
+    'https://uaiwuivyrdoausenvlbs.supabase.co/storage/v1/object/public/vendor-images/celebrations-2.jpg',
+    'https://uaiwuivyrdoausenvlbs.supabase.co/storage/v1/object/public/vendor-images/celebrations-3.jpg'
+  ],
+  description = 'Premium decoration services for all occasions',
+  area = 'Rajpur Road'
+WHERE name = 'Celebrations by Riya';
+
+
+IMAGE REQUIREMENTS
+------------------
+- Format: JPG, PNG, or WebP
+- Size: Recommended 800x800px or larger
+- Max file size: 5MB per image
+- Aspect ratio: Square (1:1) works best
+
+
+TROUBLESHOOTING
+---------------
+Q: Images not showing?
+A: 1. Check the bucket is PUBLIC
+   2. Verify the URL is correct (copy from Storage)
+   3. Check browser console for errors
+   4. Make sure image_url and portfolio_images are set in database
+
+Q: Getting 404 errors?
+A: The image URL might be wrong. Go to Storage, click the image, and copy the exact public URL.
+
+Q: Images show as emojis?
+A: The vendor doesn't have image_url or portfolio_images set. Update the vendor record in the database.
+
+
+WHAT THE CODE DOES
+------------------
+The frontend code now:
+1. Fetches vendors from database
+2. Checks if portfolio_images has URLs
+3. If yes: displays actual images
+4. If no: falls back to emojis with gradient background
+5. If image fails to load: shows emoji fallback
+
+This means:
+- Vendors WITH images → Show real photos ✅
+- Vendors WITHOUT images → Show emojis (still looks good) ✅
+- Broken image URLs → Automatic fallback to emojis ✅

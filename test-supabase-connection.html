@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Supabase Connection</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+        }
+        .input-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #333;
+        }
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 14px;
+            font-family: monospace;
+        }
+        button {
+            background: #6B3FA0;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            background: #5a3385;
+        }
+        button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 6px;
+            display: none;
+        }
+        .result.success {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+            display: block;
+        }
+        .result.error {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+            display: block;
+        }
+        .result.info {
+            background: #d1ecf1;
+            border: 1px solid #bee5eb;
+            color: #0c5460;
+            display: block;
+        }
+        pre {
+            background: #f8f9fa;
+            padding: 12px;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-size: 12px;
+        }
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .stat-card {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .stat-value {
+            font-size: 24px;
+            font-weight: bold;
+            color: #6B3FA0;
+        }
+        .stat-label {
+            font-size: 12px;
+            color: #666;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔧 Test Supabase Connection</h1>
+        <p class="subtitle">Enter your Supabase credentials to test the connection</p>
+
+        <div class="input-group">
+            <label for="url">Supabase URL</label>
+            <input 
+                type="text" 
+                id="url" 
+                value="https://uaiwuivyrdoausenvlbs.supabase.co"
+                placeholder="https://your-project.supabase.co"
+            >
+        </div>
+
+        <div class="input-group">
+            <label for="key">Supabase Anon Key (from Settings → API)</label>
+            <input 
+                type="text" 
+                id="key" 
+                placeholder="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+            >
+            <small style="color: #666; display: block; margin-top: 5px;">
+                Get this from your Supabase dashboard: Settings → API → Project API keys → anon public
+            </small>
+        </div>
+
+        <button onclick="testConnection()">Test Connection</button>
+
+        <div id="result" class="result"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script>
+        async function testConnection() {
+            const resultDiv = document.getElementById('result');
+            const url = document.getElementById('url').value.trim();
+            const key = document.getElementById('key').value.trim();
+
+            if (!url || !key) {
+                resultDiv.className = 'result error';
+                resultDiv.innerHTML = '❌ Please enter both URL and API key';
+                return;
+            }
+
+            resultDiv.className = 'result info';
+            resultDiv.innerHTML = '⏳ Testing connection...';
+
+            try {
+                // Create Supabase client
+                const supabase = window.supabase.createClient(url, key);
+
+                // Test 1: Check if we can connect
+                resultDiv.innerHTML = '⏳ Step 1/3: Testing basic connection...';
+                
+                // Test 2: Try to fetch vendors
+                resultDiv.innerHTML = '⏳ Step 2/3: Fetching vendors table...';
+                const { data: vendors, error: vendorsError } = await supabase
+                    .from('vendors')
+                    .select('*', { count: 'exact', head: true });
+
+                if (vendorsError) {
+                    throw new Error(`Vendors table error: ${vendorsError.message}`);
+                }
+
+                // Test 3: Fetch all table counts
+                resultDiv.innerHTML = '⏳ Step 3/3: Fetching all tables...';
+                
+                const [
+                    vendorsCount,
+                    usersCount,
+                    eventsCount,
+                    ordersCount,
+                    waitlistCount,
+                    partnersCount,
+                    requestsCount
+                ] = await Promise.all([
+                    supabase.from('vendors').select('*', { count: 'exact', head: true }),
+                    supabase.from('users').select('*', { count: 'exact', head: true }),
+                    supabase.from('events').select('*', { count: 'exact', head: true }),
+                    supabase.from('orders').select('*', { count: 'exact', head: true }),
+                    supabase.from('waitlist').select('*', { count: 'exact', head: true }),
+                    supabase.from('partners').select('*', { count: 'exact', head: true }),
+                    supabase.from('requests').select('*', { count: 'exact', head: true })
+                ]);
+
+                // Check for errors
+                const errors = [
+                    vendorsCount.error,
+                    usersCount.error,
+                    eventsCount.error,
+                    ordersCount.error,
+                    waitlistCount.error,
+                    partnersCount.error,
+                    requestsCount.error
+                ].filter(e => e);
+
+                if (errors.length > 0) {
+                    throw new Error(`Table errors: ${errors.map(e => e.message).join(', ')}`);
+                }
+
+                // Success!
+                const totalRecords = 
+                    (vendorsCount.count || 0) +
+                    (usersCount.count || 0) +
+                    (eventsCount.count || 0) +
+                    (ordersCount.count || 0) +
+                    (waitlistCount.count || 0) +
+                    (partnersCount.count || 0) +
+                    (requestsCount.count || 0);
+
+                resultDiv.className = 'result success';
+                resultDiv.innerHTML = `
+                    <h3>✅ Connection Successful!</h3>
+                    <p>Your Supabase database is connected and working.</p>
+                    
+                    <div class="stats">
+                        <div class="stat-card">
+                            <div class="stat-value">${vendorsCount.count || 0}</div>
+                            <div class="stat-label">Vendors</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">${usersCount.count || 0}</div>
+                            <div class="stat-label">Users</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">${eventsCount.count || 0}</div>
+                            <div class="stat-label">Events</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">${ordersCount.count || 0}</div>
+                            <div class="stat-label">Orders</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">${waitlistCount.count || 0}</div>
+                            <div class="stat-label">Waitlist</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">${partnersCount.count || 0}</div>
+                            <div class="stat-label">Partners</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">${requestsCount.count || 0}</div>
+                            <div class="stat-label">Requests</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">${totalRecords}</div>
+                            <div class="stat-label">Total Records</div>
+                        </div>
+                    </div>
+
+                    <h4 style="margin-top: 20px;">✅ Next Steps:</h4>
+                    <ol style="margin-left: 20px;">
+                        <li>Copy this API key</li>
+                        <li>Update <code>.env.local</code> file</li>
+                        <li>Restart your dev server</li>
+                        <li>Visit admin panel to see data</li>
+                    </ol>
+
+                    <h4 style="margin-top: 15px;">📋 Copy this to .env.local:</h4>
+                    <pre>NEXT_PUBLIC_SUPABASE_URL=${url}
+NEXT_PUBLIC_SUPABASE_ANON_KEY=${key}</pre>
+                `;
+
+            } catch (error) {
+                resultDiv.className = 'result error';
+                resultDiv.innerHTML = `
+                    <h3>❌ Connection Failed</h3>
+                    <p><strong>Error:</strong> ${error.message}</p>
+                    
+                    <h4>Common Issues:</h4>
+                    <ul style="margin-left: 20px;">
+                        <li><strong>Invalid API key:</strong> Make sure you copied the complete anon key from Supabase dashboard</li>
+                        <li><strong>Wrong URL:</strong> Verify the URL matches your project</li>
+                        <li><strong>Tables don't exist:</strong> Run the SQL schema in Supabase first</li>
+                        <li><strong>RLS policies:</strong> Make sure Row Level Security policies allow access</li>
+                    </ul>
+
+                    <h4>How to fix:</h4>
+                    <ol style="margin-left: 20px;">
+                        <li>Go to <a href="${url}" target="_blank">Supabase Dashboard</a></li>
+                        <li>Click Settings → API</li>
+                        <li>Copy the <strong>anon public</strong> key (very long, starts with "eyJ...")</li>
+                        <li>Paste it above and test again</li>
+                    </ol>
+                `;
+            }
+        }
+    </script>
+</body>
+</html>
