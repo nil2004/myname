@@ -11,18 +11,23 @@ const floatingCards = [
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-[5%] pt-32 pb-20 overflow-hidden bg-[var(--cream)]">
-      {/* Hero Background Image */}
+    <section 
+      className="relative min-h-screen flex flex-col items-center justify-center text-center px-[5%] pt-32 pb-20 overflow-hidden bg-[var(--cream)]"
+    >
+      {/* Background Image - Optimized for all devices */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/hero-image.jpg"
-          alt="Celebrate Life's Special Moments"
+          src="/hero-image-optimized.jpg"
+          alt="Birthday celebration background"
           fill
           priority
-          unoptimized
-          quality={100}
-          className="object-cover object-center"
+          quality={90}
           sizes="100vw"
+          style={{
+            objectFit: 'cover',
+            objectPosition: 'center',
+          }}
+          unoptimized
         />
       </div>
 
