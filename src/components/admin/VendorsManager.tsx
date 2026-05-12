@@ -867,7 +867,7 @@ function VendorModal({
                 </label>
                 <textarea
                   required
-                  value={formData.portfolio_description}
+                  value={formData.portfolio_description || ''}
                   onChange={(e) => setFormData((prev) => ({ ...prev, portfolio_description: e.target.value }))}
                   placeholder="Describe the vendor's portfolio..."
                   rows={2}

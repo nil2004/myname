@@ -1212,7 +1212,7 @@ export default function PlanForm() {
       setSlots(buildSlots(saved.slot.date));
       setSelectedSlotId(saved.slot.id);
       setPaymentChoice(saved.payment.choice);
-      setStep("dashboard");
+      setStep("confirmation");
     } catch {
       // ignore corrupted storage
     }
@@ -1604,7 +1604,7 @@ export default function PlanForm() {
     }
 
     if (answer === "Continue") {
-      setStep("recommendations");
+      setStep("confirmation");
       return;
     }
   }
@@ -1976,7 +1976,7 @@ export default function PlanForm() {
       };
       localStorage.setItem(STORAGE_KEY, JSON.stringify(nextOrder));
       setOrder(nextOrder);
-      setStep("dashboard");
+      setStep("confirmation");
     } catch {
       setError("Payment failed. Please try again.");
     } finally {
@@ -2512,7 +2512,7 @@ export default function PlanForm() {
       )}
 
       {/* Recommendations - Hidden for now */}
-      {step === "recommendations" && (
+      {false && (
         <div className="space-y-4">
           <div className="bg-white border border-[var(--border)] rounded-[24px] p-6 shadow-[0_4px_24px_rgba(26,15,46,0.06)]">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
@@ -2737,7 +2737,7 @@ export default function PlanForm() {
               ) : (
                 <button
                   type="button"
-                  onClick={() => setStep("payment")}
+                  onClick={() => setStep("confirmation")}
                   className="px-6 py-3 rounded-full bg-[var(--gold)] text-[var(--deep)] font-medium text-sm hover:bg-[var(--gold-light)] transition-colors"
                 >
                   Continue to payment
@@ -2749,7 +2749,7 @@ export default function PlanForm() {
       )}
 
       {/* Payment */}
-      {step === "payment" && (
+      {false && (
         <div className="bg-white border border-[var(--border)] rounded-[24px] p-6 shadow-[0_4px_24px_rgba(26,15,46,0.06)]">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
             <div>
@@ -2758,7 +2758,7 @@ export default function PlanForm() {
             </div>
             <button
               type="button"
-              onClick={() => setStep("dashboard")}
+              onClick={() => setStep("confirmation")}
               className="px-5 py-2.5 rounded-full border border-[var(--border)] text-sm font-medium hover:border-[rgba(107,63,160,0.35)] transition-colors"
             >
               View dashboard
@@ -2824,7 +2824,7 @@ export default function PlanForm() {
               <div className="mt-4 space-y-3 text-sm">
                 <div className="flex items-center justify-between">
                   <span className="text-[var(--text-muted)]">Slot</span>
-                  <span className="font-medium">{selectedSlot ? `${selectedSlot.date} · ${selectedSlot.time}` : "—"}</span>
+                  <span className="font-medium">{selectedSlot ? `${selectedSlot?.date} · ${selectedSlot?.time}` : "—"}</span>
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-[var(--text-muted)]">Package</span>
@@ -2856,7 +2856,7 @@ export default function PlanForm() {
       )}
 
       {/* Dashboard */}
-      {step === "dashboard" && (
+      {false && (
         <div className="bg-white border border-[var(--border)] rounded-[24px] p-6 shadow-[0_4px_24px_rgba(26,15,46,0.06)]">
           {!order ? (
             <div>
@@ -2877,11 +2877,11 @@ export default function PlanForm() {
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
                 <div>
                   <div className="text-xs font-medium tracking-widest uppercase text-[var(--text-muted)]">Order</div>
-                  <div className="font-playfair font-bold text-2xl mt-1">{order.id}</div>
+                  <div className="font-playfair font-bold text-2xl mt-1">{order?.id}</div>
                   <div className="text-sm text-[var(--text-muted)] mt-1">
-                    {order.slot.date} · {order.slot.time} · {order.event.locationType} · {order.event.city}
+                    {order?.slot.date} · {order?.slot.time} · {order?.event.locationType} · {order?.event.city}
                   </div>
-                  <div className="text-sm text-[var(--text-muted)] mt-1">Estimated guests: ~{order.event.guestCount}</div>
+                  <div className="text-sm text-[var(--text-muted)] mt-1">Estimated guests: ~{order?.event.guestCount}</div>
                 </div>
                 <div className="flex gap-2">
                   <button
@@ -2893,7 +2893,7 @@ export default function PlanForm() {
                   </button>
                   <button
                     type="button"
-                    onClick={() => setStep("customize")}
+                    onClick={() => setStep("confirmation")}
                     className="px-5 py-2.5 rounded-full bg-[var(--deep)] text-white text-sm font-medium hover:opacity-90 transition-opacity"
                   >
                     Modify
@@ -2917,7 +2917,7 @@ export default function PlanForm() {
                       { t: "Completed", d: "Event completed successfully" },
                       ] as const
                     ).map((s, idx, arr) => {
-                      const currentIdx = Math.max(0, arr.findIndex((x) => x.t === order.status));
+                      const currentIdx = Math.max(0, arr.findIndex((x) => x.t === order?.status));
                       const done = idx <= currentIdx;
                       const active = idx === currentIdx;
                       return (
@@ -2948,34 +2948,34 @@ export default function PlanForm() {
                   <div className="mt-4 space-y-3 text-sm">
                     <div className="flex items-center justify-between">
                       <span className="text-[var(--text-muted)]">Customer</span>
-                      <span className="font-medium">{order.customer?.name || "—"}</span>
+                      <span className="font-medium">{order?.customer?.name || "—"}</span>
                     </div>
                     <div className="flex items-center justify-between">
                       <span className="text-[var(--text-muted)]">Phone</span>
-                      <span className="font-medium">{order.customer?.phone || "—"}</span>
+                      <span className="font-medium">{order?.customer?.phone || "—"}</span>
                     </div>
                     <div className="flex items-center justify-between">
                       <span className="text-[var(--text-muted)]">Package</span>
-                      <span className="font-medium">{packages.find((p) => p.id === order.selectedPackageId)?.name}</span>
+                      <span className="font-medium">{packages.find((p) => p.id === order?.selectedPackageId)?.name}</span>
                     </div>
                     <div className="flex items-center justify-between">
                       <span className="text-[var(--text-muted)]">Paid</span>
-                      <span className="font-medium">₹{inr(order.payment.paidNow)}</span>
+                      <span className="font-medium">₹{inr(order?.payment.paidNow || 0)}</span>
                     </div>
                     <div className="flex items-center justify-between">
                       <span className="text-[var(--text-muted)]">Due</span>
-                      <span className="font-medium">₹{inr(order.payment.dueLater)}</span>
+                      <span className="font-medium">₹{inr(order?.payment.dueLater || 0)}</span>
                     </div>
                   </div>
 
                   <div className="mt-5 bg-[var(--deep)] text-white rounded-[18px] px-5 py-4 flex items-center justify-between">
                     <div>
                       <div className="text-xs text-[rgba(255,255,255,0.55)] uppercase tracking-widest">Total</div>
-                      <div className="font-playfair font-bold text-2xl">₹{inr(order.total)}</div>
+                      <div className="font-playfair font-bold text-2xl">₹{inr(order?.total || 0)}</div>
                     </div>
                     <button
                       type="button"
-                      onClick={() => setStep("payment")}
+                      onClick={() => setStep("confirmation")}
                       className="px-5 py-2.5 rounded-full bg-[var(--gold)] text-[var(--deep)] font-medium text-sm hover:bg-[var(--gold-light)] transition-colors"
                     >
                       Contact support
