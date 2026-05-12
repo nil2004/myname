@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 
 const floatingCards = [
   { icon: "🎂", label: "Cake booked!", className: "top-[22%] left-[5%] delay-0" },
@@ -10,17 +11,18 @@ const floatingCards = [
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-[5%] pt-32 pb-20 overflow-hidden">
+    <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-[5%] pt-32 pb-20 overflow-hidden bg-[var(--cream)]">
       {/* Hero Background Image */}
       <div className="absolute inset-0 z-0">
-        <img
+        <Image
           src="/hero-image.jpg"
           alt="Celebrate Life's Special Moments"
-          className="w-full h-full object-cover object-center"
-          style={{
-            minHeight: '100vh',
-            minWidth: '100vw',
-          }}
+          fill
+          priority
+          unoptimized
+          quality={100}
+          className="object-cover object-center"
+          sizes="100vw"
         />
       </div>
 
