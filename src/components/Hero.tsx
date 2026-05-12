@@ -12,10 +12,10 @@ const floatingCards = [
 export default function Hero() {
   return (
     <section 
-      className="relative min-h-screen flex flex-col items-center justify-center text-center px-[5%] pt-32 pb-20 overflow-hidden bg-[var(--cream)]"
+      className="relative min-h-screen flex flex-col items-center justify-center text-center px-[5%] pt-32 pb-20 overflow-hidden"
     >
       {/* Background Image - Optimized for all devices */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 bg-[var(--cream)]">
         <Image
           src="/hero-image-optimized.jpg"
           alt="Birthday celebration background"
@@ -32,11 +32,11 @@ export default function Hero() {
       </div>
 
       {/* Dark overlay for better text readability on mobile */}
-      <div className="absolute inset-0 z-[1] bg-gradient-to-b from-black/20 via-transparent to-black/30 md:from-transparent md:to-transparent" />
+      <div className="absolute inset-0 z-[5] bg-gradient-to-b from-black/20 via-transparent to-black/30 md:from-transparent md:to-transparent pointer-events-none" />
 
       {/* Subtle color gradients for depth */}
       <div
-        className="absolute inset-0 z-[2]"
+        className="absolute inset-0 z-[6] pointer-events-none"
         style={{
           background: `
             radial-gradient(ellipse 60% 50% at 20% 20%, rgba(107,63,160,0.02) 0%, transparent 70%),
