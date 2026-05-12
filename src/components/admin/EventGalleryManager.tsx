@@ -255,7 +255,7 @@ export default function EventGalleryManager() {
           <div className="text-4xl mb-3">🖼️</div>
           <div className="text-lg font-medium text-[var(--text-muted)]">No gallery items yet</div>
           <div className="text-sm text-[var(--text-muted)] mt-1">
-            Click "Add Gallery Item" to create your first event gallery
+            Click &quot;Add Gallery Item&quot; to create your first event gallery
           </div>
         </div>
       )}

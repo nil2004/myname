@@ -192,8 +192,8 @@ export default function CareersPage() {
             <span className="text-[var(--purple)]">Celebration Planning</span>
           </h1>
           <p className="text-lg text-[var(--text-muted)] leading-relaxed max-w-2xl mx-auto">
-            Join a passionate team that's transforming how Indian families celebrate life's special moments.
-            We're growing fast and looking for talented people to grow with us.
+            Join a passionate team that&apos;s transforming how Indian families celebrate life&apos;s special moments.
+            We&apos;re growing fast and looking for talented people to grow with us.
           </p>
         </div>
       </section>
@@ -347,10 +347,10 @@ export default function CareersPage() {
       <section className="py-16 px-[5%]">
         <div className="max-w-4xl mx-auto text-center bg-gradient-to-br from-[var(--purple)] to-[var(--gold)] rounded-[32px] p-12">
           <h2 className="font-playfair font-bold text-3xl md:text-4xl text-white mb-4">
-            Don't See the Right Role?
+            Don&apos;t See the Right Role?
           </h2>
           <p className="text-white/90 text-lg mb-8">
-            We're always looking for talented people. Send us your resume and let's talk!
+            We&apos;re always looking for talented people. Send us your resume and let&apos;s talk!
           </p>
           <a
             href="mailto:careers@utsavai.com"

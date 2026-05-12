@@ -64,8 +64,8 @@ export default function AboutPage() {
             <span className="text-[var(--purple)]">Magical & Stress-Free</span>
           </h1>
           <p className="text-lg text-[var(--text-muted)] leading-relaxed max-w-2xl mx-auto">
-            We're on a mission to transform birthday planning for Indian parents. Using AI-powered matching,
-            we connect you with the perfect vendors for your child's special day.
+            We&apos;re on a mission to transform birthday planning for Indian parents. Using AI-powered matching,
+            we connect you with the perfect vendors for your child&apos;s special day.
           </p>
         </div>
       </section>
@@ -80,7 +80,7 @@ export default function AboutPage() {
               </h2>
               <div className="space-y-4 text-[var(--text-muted)] leading-relaxed">
                 <p>
-                  UtsavAI was born from a simple observation: planning a child's birthday party shouldn't be
+                  UtsavAI was born from a simple observation: planning a child&apos;s birthday party shouldn&apos;t be
                   stressful. As parents ourselves, we experienced the overwhelming process of finding reliable
                   vendors, comparing prices, and coordinating everything.
                 </p>
@@ -90,13 +90,14 @@ export default function AboutPage() {
                   understands your needs and delivers personalized recommendations.
                 </p>
                 <p>
-                  Today, we're proud to serve families in Dehradun and are rapidly expanding across India.
+                  Today, we&apos;re proud to serve families in Dehradun and are rapidly expanding across India.
                   Every celebration we help plan brings us closer to our vision of making party planning
                   effortless for every parent.
                 </p>
               </div>
             </div>
             <div className="relative">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=800"
                 alt="Birthday celebration"

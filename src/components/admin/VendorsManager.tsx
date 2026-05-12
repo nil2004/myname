@@ -174,6 +174,7 @@ export default function VendorsManager() {
             {/* Banner Image */}
             {vendor.banner_image ? (
               <div className="w-full h-48 overflow-hidden bg-gradient-to-br from-[rgba(107,63,160,0.15)] to-[rgba(255,200,87,0.12)]">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={vendor.banner_image}
                   alt={vendor.name}
@@ -833,6 +834,7 @@ function VendorModal({
               <div className="space-y-2">
                 {formData.banner_image && (
                   <div className="relative w-full h-48 rounded-xl overflow-hidden border border-[var(--border)]">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={formData.banner_image}
                       alt="Banner"
@@ -897,6 +899,7 @@ function VendorModal({
                   <div className="grid grid-cols-3 gap-2 mt-3">
                     {formData.portfolio_images.map((url, index) => (
                       <div key={index} className="relative aspect-square rounded-lg overflow-hidden border border-[var(--border)]">
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
                         <img
                           src={url}
                           alt={`Portfolio ${index + 1}`}

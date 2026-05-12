@@ -2428,7 +2428,7 @@ export default function PlanForm() {
             Thank You, {customer.name}!
           </h2>
           <p className="text-lg text-[var(--text-muted)] mb-6 max-w-md mx-auto leading-relaxed">
-            We've received your party planning request. Our team will review your requirements and send you personalized vendor recommendations and a complete plan by today.
+            We&apos;ve received your party planning request. Our team will review your requirements and send you personalized vendor recommendations and a complete plan by today.
           </p>
 
           {/* Details Summary */}
@@ -2487,7 +2487,7 @@ export default function PlanForm() {
 
           {/* Contact Info */}
           <div className="text-sm text-[var(--text-muted)] mb-6">
-            <p>We'll contact you at <span className="font-semibold text-[var(--deep)]">{customer.phone}</span></p>
+            <p>We&apos;ll contact you at <span className="font-semibold text-[var(--deep)]">{customer.phone}</span></p>
             {customer.email && <p>and send details to <span className="font-semibold text-[var(--deep)]">{customer.email}</span></p>}
           </div>
 

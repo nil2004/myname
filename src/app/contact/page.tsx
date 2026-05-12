@@ -92,7 +92,7 @@ export default function ContactPage() {
             Get in Touch
           </div>
           <h1 className="font-playfair font-bold text-4xl md:text-5xl lg:text-6xl text-[var(--deep)] mb-6">
-            We'd Love to
+            We&apos;d Love to
             <br />
             <span className="text-[var(--purple)]">Hear From You</span>
           </h1>
@@ -135,7 +135,7 @@ export default function ContactPage() {
                   <div className="text-6xl mb-4">✅</div>
                   <h3 className="font-bold text-xl text-[var(--deep)] mb-2">Message Sent!</h3>
                   <p className="text-[var(--text-muted)]">
-                    We'll get back to you within 24 hours.
+                    We&apos;ll get back to you within 24 hours.
                   </p>
                 </div>
               ) : (

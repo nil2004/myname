@@ -269,9 +269,9 @@ export default function VendorSuggestionsManager() {
                       <div className="text-2xl mb-2">🤖</div>
                       <div className="font-medium mb-1">No Vendors Matched</div>
                       <div className="text-sm text-[var(--text-muted)]">
-                        AI couldn't find matching vendors for this request.
+                        AI couldn&apos;t find matching vendors for this request.
                         <br />
-                        Click "Edit Suggestions" to manually select vendors.
+                        Click &quot;Edit Suggestions&quot; to manually select vendors.
                       </div>
                     </div>
                   ) : (
@@ -621,7 +621,7 @@ function VendorOptionsDisplay({
         <div className="text-2xl mb-2">🤖</div>
         <div className="font-medium mb-1">No Vendors Matched</div>
         <div className="text-sm text-[var(--text-muted)]">
-          AI couldn't find matching vendors for this request.
+          AI couldn&apos;t find matching vendors for this request.
         </div>
       </div>
     );

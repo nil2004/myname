@@ -165,6 +165,7 @@ export default function BlogPage() {
             <div className="bg-white rounded-[32px] overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
               <div className="grid md:grid-cols-2 gap-0">
                 <div className="relative aspect-[4/3] md:aspect-auto">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={featuredPost.image}
                     alt={featuredPost.title}
@@ -239,6 +240,7 @@ export default function BlogPage() {
                   className="bg-white rounded-[24px] overflow-hidden hover:shadow-lg transition-shadow group no-underline"
                 >
                   <div className="relative aspect-[4/3] overflow-hidden">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={post.image}
                       alt={post.title}
