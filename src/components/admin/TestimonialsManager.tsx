@@ -177,7 +177,7 @@ export default function TestimonialsManager() {
                 </div>
 
                 <div className="text-sm text-[var(--text-muted)] mb-3">
-                  &quot;{item.review_text}&quot;
+                  "{item.review_text}"
                 </div>
 
                 {item.video_url && (
@@ -237,7 +237,7 @@ export default function TestimonialsManager() {
           <div className="text-4xl mb-3">💬</div>
           <div className="text-lg font-medium text-[var(--text-muted)]">No testimonials yet</div>
           <div className="text-sm text-[var(--text-muted)] mt-1">
-            Click &quot;Add Testimonial&quot; to create your first client testimonial
+            Click "Add Testimonial" to create your first client testimonial
           </div>
         </div>
       )}

@@ -174,7 +174,7 @@ FROM information_schema.columns WHERE table_name = 'vendor_suggestions';`;
                     <div className="font-medium mb-2">⚠️ Action Required</div>
                     <div className="text-sm text-[var(--text-muted)]">
                       The <code className="px-2 py-1 bg-[var(--cream)] rounded">vendor_suggestions</code> table
-                      doesn&apos;t exist in your Supabase database.
+                      doesn't exist in your Supabase database.
                     </div>
                   </div>
 
@@ -210,7 +210,7 @@ FROM information_schema.columns WHERE table_name = 'vendor_suggestions';`;
                   1
                 </div>
                 <div>
-                  <div className="font-medium mb-1">Click &quot;Copy SQL to Clipboard&quot; above</div>
+                  <div className="font-medium mb-1">Click "Copy SQL to Clipboard" above</div>
                   <div className="text-sm text-[var(--text-muted)]">
                     This will copy the SQL script needed to create the table
                   </div>
@@ -245,7 +245,7 @@ FROM information_schema.columns WHERE table_name = 'vendor_suggestions';`;
                 <div>
                   <div className="font-medium mb-1">Go to SQL Editor</div>
                   <div className="text-sm text-[var(--text-muted)]">
-                    Click &quot;SQL Editor&quot; in the left sidebar, then &quot;New query&quot;
+                    Click "SQL Editor" in the left sidebar, then "New query"
                   </div>
                 </div>
               </div>
@@ -257,7 +257,7 @@ FROM information_schema.columns WHERE table_name = 'vendor_suggestions';`;
                 <div>
                   <div className="font-medium mb-1">Paste and Run</div>
                   <div className="text-sm text-[var(--text-muted)]">
-                    Paste the SQL (Ctrl/Cmd + V) and click &quot;Run&quot; or press Ctrl/Cmd + Enter
+                    Paste the SQL (Ctrl/Cmd + V) and click "Run" or press Ctrl/Cmd + Enter
                   </div>
                 </div>
               </div>
