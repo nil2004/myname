@@ -16,13 +16,20 @@ export default function Hero() {
         <img
           src="/hero-image.jpg"
           alt="Celebrate Life's Special Moments"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover object-center"
+          style={{
+            minHeight: '100vh',
+            minWidth: '100vw',
+          }}
         />
       </div>
 
+      {/* Dark overlay for better text readability on mobile */}
+      <div className="absolute inset-0 z-[1] bg-gradient-to-b from-black/20 via-transparent to-black/30 md:from-transparent md:to-transparent" />
+
       {/* Subtle color gradients for depth */}
       <div
-        className="absolute inset-0 z-[1]"
+        className="absolute inset-0 z-[2]"
         style={{
           background: `
             radial-gradient(ellipse 60% 50% at 20% 20%, rgba(107,63,160,0.02) 0%, transparent 70%),
@@ -44,7 +51,7 @@ export default function Hero() {
 
       {/* Badge */}
       <div
-        className="relative z-10 inline-flex items-center gap-2 bg-[rgba(107,63,160,0.08)] border border-[rgba(107,63,160,0.2)] rounded-full px-4 py-1.5 text-xs font-medium text-[var(--purple)] mb-7 animate-[fadeUp_0.6s_ease_both]"
+        className="relative z-20 inline-flex items-center gap-2 bg-[rgba(107,63,160,0.08)] border border-[rgba(107,63,160,0.2)] rounded-full px-4 py-1.5 text-xs font-medium text-[var(--purple)] mb-7 animate-[fadeUp_0.6s_ease_both]"
       >
         <span className="w-1.5 h-1.5 rounded-full bg-[var(--gold)]" />
         Now live in Dehradun
@@ -52,9 +59,9 @@ export default function Hero() {
 
       {/* Headline */}
       <h1
-        className="relative z-10 font-playfair font-bold leading-[1.15] max-w-[820px] mb-6 text-[clamp(2.8rem,6vw,5rem)] animate-[fadeUp_0.7s_0.1s_ease_both]"
+        className="relative z-20 font-playfair font-bold leading-[1.15] max-w-[820px] mb-6 text-[clamp(2.8rem,6vw,5rem)] animate-[fadeUp_0.7s_0.1s_ease_both] text-white md:text-[var(--deep)]"
       >
-        Your child&apos;s <em className="italic text-[var(--purple)]">dream birthday</em>
+        Your child&apos;s <em className="italic text-[var(--gold)] md:text-[var(--purple)]">dream birthday</em>
         <br />
         planned in{" "}
         <span className="text-[var(--gold)] not-italic">3 clicks.</span>
@@ -62,14 +69,14 @@ export default function Hero() {
 
       {/* Subheading */}
       <p
-        className="relative z-10 text-lg text-[var(--text-muted)] max-w-[520px] leading-[1.7] mb-10 animate-[fadeUp_0.7s_0.2s_ease_both]"
+        className="relative z-20 text-lg text-white md:text-[var(--text-muted)] max-w-[520px] leading-[1.7] mb-10 animate-[fadeUp_0.7s_0.2s_ease_both]"
       >
         No calls. No bargaining. No stress. UtsavAI matches you with Dehradun&apos;s
         best verified vendors — decorator, cake, photographer — instantly.
       </p>
 
       {/* CTAs */}
-      <div className="relative z-10 flex gap-4 flex-wrap justify-center mb-14 animate-[fadeUp_0.7s_0.3s_ease_both]">
+      <div className="relative z-20 flex gap-4 flex-wrap justify-center mb-14 animate-[fadeUp_0.7s_0.3s_ease_both]">
         <Link
           href="/plan"
           className="bg-[var(--purple)] text-white px-8 py-3.5 rounded-full text-base font-medium shadow-[0_4px_20px_rgba(107,63,160,0.3)] hover:bg-[var(--purple-light)] hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(107,63,160,0.4)] transition-all"
@@ -78,14 +85,14 @@ export default function Hero() {
         </Link>
         <Link
           href="#how"
-          className="bg-transparent text-[var(--deep)] px-8 py-3.5 rounded-full text-base font-medium border border-[rgba(26,15,46,0.2)] hover:border-[var(--purple)] hover:-translate-y-0.5 transition-all"
+          className="bg-white md:bg-transparent text-[var(--deep)] px-8 py-3.5 rounded-full text-base font-medium border border-white md:border-[rgba(26,15,46,0.2)] hover:border-[var(--purple)] hover:-translate-y-0.5 transition-all"
         >
           See how it works
         </Link>
       </div>
 
       {/* Stats */}
-      <div className="relative z-10 flex gap-12 flex-wrap justify-center animate-[fadeUp_0.7s_0.4s_ease_both]">
+      <div className="relative z-20 flex gap-12 flex-wrap justify-center animate-[fadeUp_0.7s_0.4s_ease_both]">
         {[
           { num: "3", label: "Clicks to book" },
           { num: "₹0", label: "Platform fee" },
@@ -94,13 +101,13 @@ export default function Hero() {
         ].map((stat, i) => (
           <div key={stat.label} className="flex items-center gap-12">
             {i > 0 && (
-              <div className="hidden sm:block w-px h-10 bg-[var(--border)]" />
+              <div className="hidden sm:block w-px h-10 bg-white md:bg-[var(--border)]" />
             )}
             <div className="text-center">
-              <span className="font-playfair text-3xl font-bold text-[var(--deep)] block">
+              <span className="font-playfair text-3xl font-bold text-white md:text-[var(--deep)] block">
                 {stat.num}
               </span>
-              <span className="text-xs text-[var(--text-muted)] mt-0.5 block">
+              <span className="text-xs text-white md:text-[var(--text-muted)] mt-0.5 block">
                 {stat.label}
               </span>
             </div>
