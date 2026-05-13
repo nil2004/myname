@@ -12,10 +12,10 @@ const floatingCards = [
 export default function Hero() {
   return (
     <section 
-      className="relative min-h-screen flex flex-col items-center justify-center text-center px-[5%] pt-32 pb-20 overflow-hidden"
+      className="relative min-h-screen flex flex-col items-center justify-center text-center px-[5%] pt-32 pb-20 overflow-hidden bg-[var(--cream)]"
     >
-      {/* Background Image - Optimized for all devices */}
-      <div className="absolute inset-0 z-0 bg-[var(--cream)]">
+      {/* Background Image - Desktop only */}
+      <div className="absolute inset-0 z-0 hidden md:block">
         <Image
           src="/hero-image-optimized.jpg"
           alt="Birthday celebration background"
@@ -31,12 +31,9 @@ export default function Hero() {
         />
       </div>
 
-      {/* Dark overlay for better text readability on mobile */}
-      <div className="absolute inset-0 z-[5] bg-gradient-to-b from-black/20 via-transparent to-black/30 md:from-transparent md:to-transparent pointer-events-none" />
-
-      {/* Subtle color gradients for depth */}
+      {/* Subtle color gradients for depth - Desktop only */}
       <div
-        className="absolute inset-0 z-[6] pointer-events-none"
+        className="absolute inset-0 z-[6] pointer-events-none hidden md:block"
         style={{
           background: `
             radial-gradient(ellipse 60% 50% at 20% 20%, rgba(107,63,160,0.02) 0%, transparent 70%),
@@ -66,9 +63,9 @@ export default function Hero() {
 
       {/* Headline */}
       <h1
-        className="relative z-20 font-playfair font-bold leading-[1.15] max-w-[820px] mb-6 text-[clamp(2.8rem,6vw,5rem)] animate-[fadeUp_0.7s_0.1s_ease_both] text-white md:text-[var(--deep)]"
+        className="relative z-20 font-playfair font-bold leading-[1.15] max-w-[820px] mb-6 text-[clamp(2.8rem,6vw,5rem)] animate-[fadeUp_0.7s_0.1s_ease_both] text-[var(--deep)] md:text-[var(--deep)]"
       >
-        Your child&apos;s <em className="italic text-[var(--gold)] md:text-[var(--purple)]">dream birthday</em>
+        Your child&apos;s <em className="italic text-[var(--purple)] md:text-[var(--purple)]">dream birthday</em>
         <br />
         planned in{" "}
         <span className="text-[var(--gold)] not-italic">3 clicks.</span>
@@ -76,7 +73,7 @@ export default function Hero() {
 
       {/* Subheading */}
       <p
-        className="relative z-20 text-lg text-white md:text-[var(--text-muted)] max-w-[520px] leading-[1.7] mb-10 animate-[fadeUp_0.7s_0.2s_ease_both]"
+        className="relative z-20 text-lg text-[var(--text-muted)] md:text-[var(--text-muted)] max-w-[520px] leading-[1.7] mb-10 animate-[fadeUp_0.7s_0.2s_ease_both]"
       >
         No calls. No bargaining. No stress. UtsavAI matches you with Dehradun&apos;s
         best verified vendors — decorator, cake, photographer — instantly.
@@ -92,7 +89,7 @@ export default function Hero() {
         </Link>
         <Link
           href="#how"
-          className="bg-white md:bg-transparent text-[var(--deep)] px-8 py-3.5 rounded-full text-base font-medium border border-white md:border-[rgba(26,15,46,0.2)] hover:border-[var(--purple)] hover:-translate-y-0.5 transition-all"
+          className="bg-transparent text-[var(--deep)] px-8 py-3.5 rounded-full text-base font-medium border border-[rgba(26,15,46,0.2)] hover:border-[var(--purple)] hover:-translate-y-0.5 transition-all"
         >
           See how it works
         </Link>
@@ -108,13 +105,13 @@ export default function Hero() {
         ].map((stat, i) => (
           <div key={stat.label} className="flex items-center gap-12">
             {i > 0 && (
-              <div className="hidden sm:block w-px h-10 bg-white md:bg-[var(--border)]" />
+              <div className="hidden sm:block w-px h-10 bg-[var(--border)]" />
             )}
             <div className="text-center">
-              <span className="font-playfair text-3xl font-bold text-white md:text-[var(--deep)] block">
+              <span className="font-playfair text-3xl font-bold text-[var(--deep)] block">
                 {stat.num}
               </span>
-              <span className="text-xs text-white md:text-[var(--text-muted)] mt-0.5 block">
+              <span className="text-xs text-[var(--text-muted)] mt-0.5 block">
                 {stat.label}
               </span>
             </div>
