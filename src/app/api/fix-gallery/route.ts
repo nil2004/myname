@@ -41,22 +41,22 @@ export async function POST() {
     const testimonialUpdates = [
       {
         client_name: "Priya Sharma",
-        image_url: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400",
+        client_image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400",
       },
       {
         client_name: "Rahul Verma",
-        image_url: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400",
+        client_image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400",
       },
       {
         client_name: "Anjali Gupta",
-        image_url: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400",
+        client_image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400",
       },
     ];
 
     for (const update of testimonialUpdates) {
       await supabase
         .from("client_testimonials")
-        .update({ image_url: update.image_url })
+        .update({ client_image: update.client_image })
         .eq("client_name", update.client_name);
     }
 
