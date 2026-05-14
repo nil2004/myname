@@ -19,6 +19,15 @@ export const metadata: Metadata = {
   title: "UtsavAI — Plan Your Child's Dream Birthday in 3 Clicks",
   description:
     "No calls. No bargaining. No stress. UtsavAI matches you with Dehradun's best verified vendors — decorator, cake, photographer — instantly.",
+  icons: {
+    icon: [
+      { url: '/favicon.png' },
+      { url: '/UtsavAi.png', sizes: '192x192', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/UtsavAi.png' },
+    ],
+  },
 };
 
 export default function RootLayout({
