@@ -21,11 +21,7 @@ export const metadata: Metadata = {
     "No calls. No bargaining. No stress. UtsavAI matches you with Dehradun's best verified vendors — decorator, cake, photographer — instantly.",
   icons: {
     icon: [
-      { url: '/favicon.png' },
-      { url: '/UtsavAi.png', sizes: '192x192', type: 'image/png' },
-    ],
-    apple: [
-      { url: '/UtsavAi.png' },
+      { url: '/favicon.svg', type: 'image/svg+xml' },
     ],
   },
 };
