@@ -63,9 +63,9 @@ export default function Hero() {
 
       {/* Headline */}
       <h1
-        className="relative z-20 font-playfair font-bold leading-[1.15] max-w-[820px] mb-6 text-[clamp(2.8rem,6vw,5rem)] animate-[fadeUp_0.7s_0.1s_ease_both] text-[var(--deep)] md:text-[var(--deep)]"
+        className="relative z-20 font-playfair font-bold leading-[1.15] max-w-[820px] mb-6 text-[clamp(2.8rem,6vw,5rem)] animate-[fadeUp_0.7s_0.1s_ease_both] text-[var(--deep)]"
       >
-        Your child&apos;s <em className="italic text-[var(--purple)] md:text-[var(--purple)]">dream birthday</em>
+        Your child&apos;s <em className="italic text-[var(--purple)]">dream birthday</em>
         <br />
         planned in{" "}
         <span className="text-[var(--gold)] not-italic">3 clicks.</span>
@@ -73,7 +73,7 @@ export default function Hero() {
 
       {/* Subheading */}
       <p
-        className="relative z-20 text-lg text-[var(--text-muted)] md:text-[var(--text-muted)] max-w-[520px] leading-[1.7] mb-10 animate-[fadeUp_0.7s_0.2s_ease_both]"
+        className="relative z-20 text-lg text-[var(--text-muted)] max-w-[520px] leading-[1.7] mb-10 animate-[fadeUp_0.7s_0.2s_ease_both]"
       >
         No calls. No bargaining. No stress. UtsavAI matches you with Dehradun&apos;s
         best verified vendors — decorator, cake, photographer — instantly.
